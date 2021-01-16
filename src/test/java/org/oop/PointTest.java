@@ -12,7 +12,7 @@ public class PointTest {
     void twoPointsWithSameXAndYCoordinatesShouldHaveADistanceOfZero() {
         Point origin = new Point(0, 0);
 
-        double actualDistance = Point.distance(origin, origin);
+        double actualDistance = origin.distanceTo(origin);
 
         assertEquals(0, actualDistance);
     }
@@ -23,8 +23,8 @@ public class PointTest {
         Point point1 = new Point(1, 0);
         Point point2 = new Point(0, 1);
 
-        double distanceFromPoint1 = Point.distance(origin, point1);
-        double distanceFromPoint2 = Point.distance(origin, point2);
+        double distanceFromPoint1 = origin.distanceTo(point1);
+        double distanceFromPoint2 = origin.distanceTo(point2);
 
         assertEquals(1, distanceFromPoint1);
         assertEquals(1, distanceFromPoint2);
@@ -35,7 +35,7 @@ public class PointTest {
         Point point1 = new Point(1, 0);
         Point point2 = new Point(-1, 0);
 
-        double actualDistance = Point.distance(point1, point2);
+        double actualDistance = point1.distanceTo(point2);
 
         assertEquals(2, actualDistance);
     }
@@ -46,8 +46,8 @@ public class PointTest {
         Point point1 = new Point(1, 0);
         Point point2 = new Point(3, 0);
 
-        double directionOfPoint1FromOrigin = Point.direction(origin, point1);
-        double directionOfPoint2FromOrigin = Point.direction(origin, point2);
+        double directionOfPoint1FromOrigin = origin.directionTo(point1);
+        double directionOfPoint2FromOrigin = origin.directionTo(point2);
 
         assertEquals(0, directionOfPoint1FromOrigin);
         assertEquals(0, directionOfPoint2FromOrigin);
@@ -59,8 +59,8 @@ public class PointTest {
         Point point1 = new Point(-1, 0);
         Point point2 = new Point(-3, 0);
 
-        double directionOfPoint1FromOrigin = Point.direction(origin, point1);
-        double directionOfPoint2FromOrigin = Point.direction(origin, point2);
+        double directionOfPoint1FromOrigin = origin.directionTo(point1);
+        double directionOfPoint2FromOrigin = origin.directionTo(point2);
 
         assertEquals(Math.PI, directionOfPoint1FromOrigin);
         assertEquals(Math.PI, directionOfPoint2FromOrigin);
@@ -72,8 +72,8 @@ public class PointTest {
         Point point1 = new Point(0, 1);
         Point point2 = new Point(0, 3);
 
-        double directionOfPoint1FromOrigin = Point.direction(origin, point1);
-        double directionOfPoint2FromOrigin = Point.direction(origin, point2);
+        double directionOfPoint1FromOrigin = origin.directionTo(point1);
+        double directionOfPoint2FromOrigin = origin.directionTo(point2);
 
         assertEquals(Math.PI / 2, directionOfPoint2FromOrigin);
         assertEquals(Math.PI / 2, directionOfPoint1FromOrigin);

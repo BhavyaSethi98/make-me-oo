@@ -4,14 +4,8 @@ public class Point {
     private final double x;
     private final double y;
 
-    public static double distance(Point from, Point to) {
-        double xDistance = getDistance(to.x, from.x);
-        double yDistance = getDistance(to.y, from.y);
-        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-    }
-
-    private static double getDistance(double point1, double point2) {
-        return point1 - point2;
+    private static double getDistance(double coordinate1, double coordinate2) {
+        return coordinate1 - coordinate2;
     }
 
     public Point(double x, double y) {
@@ -19,7 +13,15 @@ public class Point {
         this.y = y;
     }
 
-    public static double direction(Point from, Point to) {
+    public double distanceTo(Point to) {
+        Point from = this;
+        double xDistance = getDistance(to.x, from.x);
+        double yDistance = getDistance(to.y, from.y);
+        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+    }
+
+    public double directionTo(Point to) {
+        Point from = this;
         double xDistance = getDistance(to.x, from.x);
         double yDistance = getDistance(to.y, from.y);
         return Math.atan2(yDistance, xDistance);
